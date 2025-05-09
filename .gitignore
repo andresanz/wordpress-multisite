@@ -13,3 +13,6 @@ wp-content/backups/
 node_modules/
 vendor/
 .env
+
+!db/
+!db/*.sql
