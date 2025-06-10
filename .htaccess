@@ -24,3 +24,7 @@ RewriteRule . index.php [L]
   ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
 
+<If "%{HTTP_HOST} == 'ensuringopportunity.com'">
+    Redirect permanent / https://server01.technologyfoc.us/sites/ensuringopportunity.com
+</If>
+
