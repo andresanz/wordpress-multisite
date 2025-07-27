@@ -4,7 +4,7 @@ Contributors:      google
 Requires at least: 5.2
 Tested up to:      6.8
 Requires PHP:      7.4
-Stable tag:        1.154.0
+Stable tag:        1.157.0
 License:           Apache License 2.0
 License URI:       https://www.apache.org/licenses/LICENSE-2.0
 Tags:              google, search-console, analytics, adsense, pagespeed-insights
@@ -109,23 +109,30 @@ Please create a new topic on our [WordPress.org support forum](https://wordpress
 
 == Changelog ==
 
-= 1.154.0 =
+= 1.157.0 =
 
 **Enhanced**
 
-* Add the `purchase` event tracking for the WooCommerce conversion tracking provider on block themes. See [#10747](https://github.com/google/site-kit-wp/issues/10747).
-* Add all WooCommerce conversion events to track when WooCommerce Analytics Addon is available. See [#10691](https://github.com/google/site-kit-wp/issues/10691).
-* Update WooCommerce events tracking to include additional information. See [#10672](https://github.com/google/site-kit-wp/issues/10672).
-* Update success subtle notifications to use the new `<Notice type="success">` component. See [#10432](https://github.com/google/site-kit-wp/issues/10432).
-* Refactor the usage of all “info type notice” components to use the new `<Notice type='info'>` component. See [#10430](https://github.com/google/site-kit-wp/issues/10430).
-* Refactor components used for warnings throughout the plugin. See [#10428](https://github.com/google/site-kit-wp/issues/10428).
-* Reset the dismissal state for the Reader Revenue Manager product ID notifications when the connected publication is changed, ensuring they can be shown again. See [#10311](https://github.com/google/site-kit-wp/issues/10311).
-* Fix tooltip issues on mobile/tablet viewports when user clicked outside of the tooltip area. See [#10101](https://github.com/google/site-kit-wp/issues/10101).
-* Add the accepted language information to the remove notifications requests. See [#8813](https://github.com/google/site-kit-wp/issues/8813).
+* Show an in-progress spinner in the Google Tag Gateway Setup Banner's CTA button when it's clicked and setup is underway. See [#11027](https://github.com/google/site-kit-wp/issues/11027).
+* Update "First-party mode" references to "Google tag gateway for advertisers". See [#10951](https://github.com/google/site-kit-wp/issues/10951).
+* Add support for named date ranges when requesting Google Analytics reports. Props leonidasmi. See [#10738](https://github.com/google/site-kit-wp/issues/10738).
+* Apply the “Warning Banner” layout to redesign the `WebDataStreamNotAvailableNotification` banner. See [#10424](https://github.com/google/site-kit-wp/issues/10424).
+* Update the design of the Google Tag ID mismatch notification. See [#10423](https://github.com/google/site-kit-wp/issues/10423).
+* Apply the “Error Banner” layout to redesign the `AuthError` banner. See [#10422](https://github.com/google/site-kit-wp/issues/10422).
+* Update the error banner styling. See [#10421](https://github.com/google/site-kit-wp/issues/10421).
+* Apply the “Error Banner” layout to redesign the `UnsatisfiedScopesAlert` banner. See [#10420](https://github.com/google/site-kit-wp/issues/10420).
+* Update the module Recovery Alert banner design. See [#10384](https://github.com/google/site-kit-wp/issues/10384).
+* Update the "Confirm changes" module settings button to retain its label while saving. See [#10282](https://github.com/google/site-kit-wp/issues/10282).
+* Refactor `CoreSiteBannerNotifications` to use the new Notifications datastore. See [#9294](https://github.com/google/site-kit-wp/issues/9294).
+* Introduce consistent `Typography` component. See [#8581](https://github.com/google/site-kit-wp/issues/8581).
+* Update the Ad Blocking Recovery setup screen to better match the Figma design. Props mxbclang. See [#7300](https://github.com/google/site-kit-wp/issues/7300).
+* Add internal URL utility selectors. See [#7112](https://github.com/google/site-kit-wp/issues/7112).
 
 **Fixed**
 
-* Fix error preventing the Reader Revenue Manager block editor plugin and Sign in With Google blocks from loading in the block editor. See [#10822](https://github.com/google/site-kit-wp/issues/10822).
-* Fix incorrect step navigation in feature tours. See [#10590](https://github.com/google/site-kit-wp/issues/10590).
+* Fix site health information for Google Tag Gateway enabled status. See [#11039](https://github.com/google/site-kit-wp/issues/11039).
+* Fix the console error that appeared when setting up visitor groups from Admin settngs. See [#10965](https://github.com/google/site-kit-wp/issues/10965).
+* Ensure spinner appears on Enhanced Measurement CTA button. See [#10960](https://github.com/google/site-kit-wp/issues/10960).
+* Update the design of the "Enable auto-updates" notification banner. See [#10956](https://github.com/google/site-kit-wp/issues/10956).
 
 [See changelog for all versions](https://raw.githubusercontent.com/google/site-kit-wp/main/changelog.txt).
