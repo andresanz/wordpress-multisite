@@ -1,11 +1,8 @@
 <div class="roundedrectangle">
   <footer>
-    <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
+    <p><a href="https://andresanz.com/countdown/" style="color: black;">&copy;</a> <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
 
-    <div class="social-icons">
-      <a href="https://andresanz.com/countdown/"><i class="fa-solid fa-stopwatch"></i></a>
 
-    </div>
 
 
 

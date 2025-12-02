@@ -1,6 +1,9 @@
 /*
-Theme Name: ChatGPT Fixed André 2025-04-22
+Theme Name: BlankSlateChild02 2025-12-02
 Template: blankslate
+Author: André Sanz
+Author URI: https://randomcategory.com/about
+Description: created 2025-12-02 by me in Brewster, NY
 */
 
 :root {
@@ -564,6 +567,7 @@ summary {
 .page-id-6 .entry-title,
 .page-id-23 .entry-title,
 .page-id-166 .entry-title,
+.page-id-872 .entry-title,
 .page-id-8 .entry-title {
   display: none;
 }
