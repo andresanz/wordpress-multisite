@@ -13,6 +13,19 @@
   <?php wp_footer(); ?>
 </div>
 </div> <!-- end .container -->
+
+<a id="back-to-top" href="#">
+  <span class="arrow">↑</span>
+</a>
+
+<script>
+document.addEventListener("scroll", () => {
+  const btn = document.getElementById("back-to-top");
+  if (window.scrollY > 300) btn.classList.add("visible");
+  else btn.classList.remove("visible");
+});
+</script>
+
 </body>
 
 </html>

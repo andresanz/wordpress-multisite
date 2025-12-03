@@ -620,3 +620,135 @@ summary {
     flex: 1 1 0;
   }
 }
+
+/* === Back to Top Button === */
+#back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.5rem;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  opacity: 0.65;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 9999;
+}
+
+#back-to-top:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+#back-to-top:active {
+  transform: translateY(0px);
+}
+
+/* Visibility trigger */
+#back-to-top.hidden {
+  display: none;
+}
+
+/* === Floating Back to Top Button (RandomCategory) === */
+#back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.5rem;
+  width: 48px;
+  height: 48px;
+  background: var(--background-header, #dcefdc);
+  color: #000;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#back-to-top.visible {
+  opacity: 0.9;
+  transform: translateY(0px);
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+#back-to-top .arrow {
+  position: relative;
+  top: -1px;
+}
+
+@media (max-width: 600px) {
+  #back-to-top {
+    right: 0.75rem;
+    bottom: 1rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+}
+
+/* === Floating Back to Top Button (RandomCategory) === */
+#back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.5rem;
+  width: 48px;
+  height: 48px;
+  background: var(--background-header, #dcefdc);
+  color: #000;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#back-to-top.visible {
+  opacity: 0.9;
+  transform: translateY(0px);
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+#back-to-top .arrow {
+  position: relative;
+  top: -1px;
+}
+
+@media (max-width: 600px) {
+  #back-to-top {
+    right: 0.75rem;
+    bottom: 1rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+}
