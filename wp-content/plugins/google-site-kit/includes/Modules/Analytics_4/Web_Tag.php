@@ -37,14 +37,6 @@ class Web_Tag extends Module_Web_Tag implements Tag_Interface, Tag_With_Linker_I
 	private $custom_dimensions;
 
 	/**
-	 * Ads conversion ID.
-	 *
-	 * @since 1.32.0
-	 * @var string
-	 */
-	private $ads_conversion_id;
-
-	/**
 	 * Sets custom dimensions data.
 	 *
 	 * @since 1.113.0
@@ -67,17 +59,6 @@ class Web_Tag extends Module_Web_Tag implements Tag_Interface, Tag_With_Linker_I
 	}
 
 	/**
-	 * Sets the ads conversion ID.
-	 *
-	 * @since 1.32.0
-	 *
-	 * @param string $ads_conversion_id Ads ID.
-	 */
-	public function set_ads_conversion_id( $ads_conversion_id ) {
-		$this->ads_conversion_id = $ads_conversion_id;
-	}
-
-	/**
 	 * Gets args to use if blocked_on_consent is deprecated.
 	 *
 	 * @since 1.122.0
@@ -88,7 +69,7 @@ class Web_Tag extends Module_Web_Tag implements Tag_Interface, Tag_With_Linker_I
 		return array(
 			'1.122.0', // Deprecated in this version.
 			'',
-			__( 'Please use the Consent Mode feature instead.', 'google-site-kit' ),
+			__( 'Please use the consent mode feature instead.', 'google-site-kit' ),
 		);
 	}
 
@@ -144,11 +125,6 @@ class Web_Tag extends Module_Web_Tag implements Tag_Interface, Tag_With_Linker_I
 		}
 
 		$gtag->add_tag( $this->tag_id, $gtag_opt );
-
-		// TODO: Lift this out to the Ads module when it's ready.
-		if ( $this->ads_conversion_id ) {
-			$gtag->add_tag( $this->ads_conversion_id );
-		}
 	}
 
 	/**
@@ -196,7 +172,7 @@ class Web_Tag extends Module_Web_Tag implements Tag_Interface, Tag_With_Linker_I
 	/**
 	 * Adds HTML attributes to the gtag script tag to block it until user consent is granted.
 	 *
-	 * This mechanism for blocking the tag is deprecated and the Consent Mode feature should be used instead.
+	 * This mechanism for blocking the tag is deprecated and the consent mode feature should be used instead.
 	 *
 	 * @since 1.122.0
 	 * @since 1.158.0 Remove src from signature & replacement.
