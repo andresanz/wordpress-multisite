@@ -432,7 +432,8 @@ article.post .entry-header img {
 .entry-content p,
 .entry-content h2,
 .entry-content ul {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0rem;
+  margin-top: 1.5rem;
 }
 
 /* Fix for no-sidebar layout */
@@ -750,5 +751,95 @@ summary {
     width: 42px;
     height: 42px;
     font-size: 1.2rem;
+  }
+}
+
+/* === Clean Comment Reply Area === */
+.comment-respond {
+  max-width: 620px;          /* narrower card */
+  margin: 2rem auto;
+  padding: 1rem 1.25rem;     /* reduced side padding */
+  background: #fffdf8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Title */
+.comment-respond .comment-reply-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* “Email address will not be published…” text */
+.comment-respond .comment-notes {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+  max-width: 40rem;
+}
+
+/* Field labels */
+.comment-respond label {
+  display: block;
+  font-weight: 600;
+  margin: 1rem 0 0.35rem;
+}
+
+/* Inputs + textarea */
+.comment-respond input[type="text"],
+.comment-respond input[type="email"],
+.comment-respond input[type="url"],
+.comment-respond textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #c8c2b2;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.comment-respond textarea {
+  min-height: 170px;
+  resize: vertical;
+}
+
+/* Cookies / remember-me row */
+.comment-respond .comment-form-cookies-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.comment-respond .comment-form-cookies-consent input[type="checkbox"] {
+  margin-top: 0.25rem;
+}
+
+/* Submit button */
+.comment-respond input[type="submit"] {
+  margin-top: 1.25rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #888876;
+  background: #f3e6c6;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.comment-respond input[type="submit"]:hover {
+  background: #ead8ae;
+  border-color: #666655;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .comment-respond {
+    margin: 1.5rem 0.5rem;
+    padding: 1rem;
   }
 }

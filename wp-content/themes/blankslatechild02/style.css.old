@@ -1,0 +1,85 @@
+/* === Comment Form Cleanup v2 === */
+.comment-respond {
+  max-width: 720px;
+  margin: 1.75rem auto 1rem;
+  padding: 1rem 1.25rem;
+  background: #fffdf8;
+  border-radius: 8px;
+  border: 1px solid #e0dcc4;
+}
+
+.comment-respond .comment-reply-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.comment-respond .comment-notes {
+  max-width: 40rem;
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 0 1rem;
+}
+
+.comment-respond p {
+  margin: 0 0 0.75rem;
+}
+
+.comment-respond label {
+  display: block;
+  font-weight: 600;
+  margin: 0.75rem 0 0.3rem;
+}
+
+.comment-respond input[type="text"],
+.comment-respond input[type="email"],
+.comment-respond input[type="url"],
+.comment-respond textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.45rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid #c2c2b8;
+  background: #ffffff;
+  font: inherit;
+}
+
+.comment-respond textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.comment-respond .comment-form-cookies-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.comment-respond .comment-form-cookies-consent input[type="checkbox"] {
+  margin-top: 0.25rem;
+}
+
+.comment-respond input[type="submit"] {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  border: 1px solid #888876;
+  background: #f3e6c6;
+  color: #000;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.comment-respond input[type="submit"]:hover {
+  background: #ead8ae;
+  border-color: #666655;
+}
+
+@media (max-width: 600px) {
+  .comment-respond {
+    margin: 1.25rem 0.5rem;
+    padding: 0.85rem 0.9rem;
+  }
+}
