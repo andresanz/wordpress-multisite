@@ -66,11 +66,7 @@
 
 
         <div class="entry-summary">
-            <p class="excerpt">
-                <?php echo wp_trim_words(get_the_content(), 40, ''); ?>
-            </p>
+            <?php the_excerpt(); ?>
         </div>
-
-        <a class="read-more" href="<?php the_permalink(); ?>">Read more »</a>
     </div>
 </article>

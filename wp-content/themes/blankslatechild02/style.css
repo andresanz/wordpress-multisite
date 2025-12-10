@@ -859,3 +859,21 @@ summary {
 .wp-block-page-list li {
     margin-bottom: 0rem; 
 }
+
+.home.page-id-872 nav {
+  display: none !important;
+}
+
+.home.page-id-872 nav.menu + * {
+  margin-top: 0;
+}
+
+/* Second .roundedrectangle on the page — the nav bar wrapper */
+.home.page-id-872 .roundedrectangle:nth-of-type(2) {
+  display: none !important;
+}
+
+.wp-block-archives li {
+    padding-left: 0rem; 
+    
+}

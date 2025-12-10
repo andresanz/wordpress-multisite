@@ -55,7 +55,7 @@ function custom_trim_excerpt($text = '')
     $text = strip_shortcodes($text);
     $text = apply_filters('the_content', $text);
     $text = str_replace(']]>', ']]&gt;', $text);
-    $text = wp_trim_words($text, 55, ''); // 55 words, no ellipsis
+    $text = wp_trim_words($text, 35, '......'); // 55 words, no ellipsis
   }
   return $text;
 }
