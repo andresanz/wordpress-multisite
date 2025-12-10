@@ -571,6 +571,7 @@ summary {
 .page-id-166 .entry-title,
 .page-id-872 .entry-title,
 .page-id-100 .entry-title,
+.page-id-1218 .entry-title,
 .page-id-8 .entry-title {
   display: none;
 }
@@ -844,4 +845,17 @@ summary {
     margin: 1.5rem 0.5rem;
     padding: 1rem;
   }
+}
+
+.widget_categories li, .widget_tag_cloud li, .widget ul li {
+    padding-left: 0rem;
+  }
+
+
+  widget ul, .wp-block-page-list {
+    padding-left: 0rem;
+}
+
+.wp-block-page-list li {
+    margin-bottom: 0rem; 
 }
