@@ -39,28 +39,29 @@ function auto_link_content_images($content)
 }
 add_filter('the_content', 'auto_link_content_images', 20);
 
-
-
 function clean_excerpt_more($more)
 {
-  return ''; // removes the default " [...]"
+  // Remove WordPress' default " [...]" / "..." more text
+  return '';
 }
-add_filter('excerpt_more', 'clean_excerpt_more');
+add_filter('excerpt_more', 'clean_excerpt_more', 999);
 
-function custom_trim_excerpt($text = '')
+function custom_trim_excerpt($text, $raw_excerpt)
 {
-  $raw_excerpt = $text;
-  if ('' == $text) {
+  // If there is no manual excerpt, build from full content
+  if ($raw_excerpt === '') {
     $text = get_the_content('');
     $text = strip_shortcodes($text);
     $text = apply_filters('the_content', $text);
     $text = str_replace(']]>', ']]&gt;', $text);
-    $text = wp_trim_words($text, 35, '......'); // 55 words, no ellipsis
   }
+
+  // Always trim to 40 words, with NO trailing ellipsis
+  $text = wp_trim_words(wp_strip_all_tags($text), 40, '...');
+
   return $text;
 }
-add_filter('get_the_excerpt', 'custom_trim_excerpt');
-
+add_filter('wp_trim_excerpt', 'custom_trim_excerpt', 10, 2);
 
 add_theme_support('post-thumbnails');
 

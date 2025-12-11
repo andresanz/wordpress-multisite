@@ -3,7 +3,7 @@
 <div class="main-area">
   <main id="content" class="roundedrectangle">
     <header class="archive-header">
-      <h1 class="archive-title"><?php single_cat_title(); ?></h1>
+      <h1 class="archive-title"><?php echo 'Category: ' . single_cat_title('', false); ?></h1>
       <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
     </header>
 
