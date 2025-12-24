@@ -895,3 +895,33 @@ summary {
 
 .rc-btn--ghost { opacity: 0.8; }
 .rc-btn:hover { opacity: 1; transform: translateY(-1px); }
+
+/* 1) Make the two-column container actually stretch both columns */
+@media (min-width: 768px) {
+  .main-area {
+    display: flex;
+    align-items: stretch;
+  }
+
+  main, aside {
+    display: flex;          /* lets children stretch */
+    flex-direction: column;
+  }
+}
+
+/* 2) Stretch the rounded-rectangle wrapper to fill the column */
+@media (min-width: 768px) {
+  main .roundedrectangle,
+  aside .roundedrectangle {
+    flex: 1 1 auto;
+    height: 100%;
+  }
+}
+
+/* 3) Only for empty search pages: give both panels a minimum height */
+@media (min-width: 768px) {
+  body.search-no-results main .roundedrectangle,
+  body.search-no-results aside .roundedrectangle {
+    min-height: 60vh;
+  }
+}
