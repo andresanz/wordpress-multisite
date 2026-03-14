@@ -1,0 +1,579 @@
+/*
+Theme Name: BearPress
+Theme URI: https://github.com/yourusername/bearpress
+Author: André Sanz
+Author URI: https://yourdomain.com
+Description: A brutally minimal WordPress theme inspired by BearBlog. Fast, readable, no bloat.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bearpress
+Tags: blog, minimal, lightweight, typography, one-column
+*/
+
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   TOKENS
+   ========================================================= */
+
+:root {
+  --bg:        #fff;
+  --fg:        #222;
+  --muted:     #777;
+  --border:    #e0e0e0;
+  --accent:    #222;
+  --link:      #222;
+  --link-visited: #555;
+
+  --font-body: Georgia, "Times New Roman", Times, serif;
+  --font-mono: "Courier New", Courier, monospace;
+
+  --text-base: 1.125rem;   /* 18px */
+  --text-sm:   0.875rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+
+  --measure:   65ch;
+  --gap:       1.5rem;
+  --gap-lg:    3rem;
+}
+
+/* =========================================================
+   DOCUMENT
+   ========================================================= */
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.75;
+  padding: var(--gap-lg) var(--gap);
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.site {
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   SITE HEADER
+   ========================================================= */
+
+.site-header {
+  margin-bottom: var(--gap-lg);
+  padding-bottom: var(--gap);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-title {
+  font-size: var(--text-xl);
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.site-title a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.site-title a:hover {
+  text-decoration: underline;
+}
+
+.site-description {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--gap);
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav .current-menu-item a {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.site-main {
+  margin-bottom: var(--gap-lg);
+}
+
+/* =========================================================
+   POST LIST (index / archive)
+   ========================================================= */
+
+.post-list {
+  list-style: none;
+}
+
+.post-list-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list-item:last-child {
+  border-bottom: none;
+}
+
+.post-list-date {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+
+.post-list-title a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.post-list-title a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   SINGLE POST
+   ========================================================= */
+
+.entry-header {
+  margin-bottom: var(--gap-lg);
+}
+
+.entry-title {
+  font-size: var(--text-2xl);
+  font-weight: bold;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.entry-meta {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.entry-meta a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   ENTRY CONTENT (prose)
+   ========================================================= */
+
+.entry-content > * + * {
+  margin-top: var(--gap);
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  font-weight: bold;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-content h1 { font-size: var(--text-2xl); }
+.entry-content h2 { font-size: var(--text-xl); }
+.entry-content h3 { font-size: var(--text-lg); }
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 { font-size: var(--text-base); }
+
+.entry-content a {
+  color: var(--link);
+}
+
+.entry-content a:visited {
+  color: var(--link-visited);
+}
+
+.entry-content strong { font-weight: bold; }
+.entry-content em     { font-style: italic; }
+
+.entry-content ul,
+.entry-content ol {
+  padding-left: 1.5rem;
+}
+
+.entry-content ul { list-style: disc; }
+.entry-content ol { list-style: decimal; }
+
+.entry-content li + li {
+  margin-top: 0.25rem;
+}
+
+.entry-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--gap-lg) 0;
+}
+
+.entry-content blockquote {
+  border-left: 3px solid var(--fg);
+  padding-left: var(--gap);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.entry-content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: #f4f4f4;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+.entry-content pre {
+  background: #f4f4f4;
+  padding: var(--gap);
+  overflow-x: auto;
+  border-radius: 2px;
+}
+
+.entry-content pre code {
+  background: none;
+  padding: 0;
+  font-size: var(--text-sm);
+}
+
+.entry-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.entry-content figure {
+  margin: 0;
+}
+
+.entry-content figcaption {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.entry-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.entry-content th,
+.entry-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.75rem;
+  text-align: left;
+}
+
+.entry-content th {
+  background: #f4f4f4;
+  font-weight: bold;
+}
+
+/* =========================================================
+   POST FOOTER / TAGS
+   ========================================================= */
+
+.entry-footer {
+  margin-top: var(--gap-lg);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--border);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.tag-list a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+.tag-list a:hover {
+  color: var(--fg);
+}
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+  margin-top: var(--gap-lg);
+  font-size: var(--text-sm);
+}
+
+.pagination a {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   COMMENTS
+   ========================================================= */
+
+.comments-area {
+  margin-top: var(--gap-lg);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--border);
+}
+
+.comments-title {
+  font-size: var(--text-lg);
+  font-weight: bold;
+  margin-bottom: var(--gap);
+}
+
+.comment-list {
+  list-style: none;
+}
+
+.comment {
+  padding: var(--gap) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.comment-meta {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.comment-author b {
+  color: var(--fg);
+}
+
+/* Comment form */
+.comment-form label {
+  display: block;
+  font-size: var(--text-sm);
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  margin-bottom: var(--gap);
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  outline: 2px solid var(--fg);
+  outline-offset: 1px;
+}
+
+.comment-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.comment-form input[type="submit"],
+.wp-block-button__link {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.comment-form input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+/* =========================================================
+   SITE FOOTER
+   ========================================================= */
+
+.site-footer {
+  margin-top: var(--gap-lg);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   SEARCH FORM
+   ========================================================= */
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: var(--gap);
+}
+
+.search-form input[type="search"] {
+  flex: 1;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-appearance: none;
+}
+
+.search-form button {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+/* =========================================================
+   WIDGETS / SIDEBAR (if used)
+   ========================================================= */
+
+.widget {
+  margin-bottom: var(--gap-lg);
+}
+
+.widget-title {
+  font-size: var(--text-base);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--text-sm);
+}
+
+/* =========================================================
+   UTILITY
+   ========================================================= */
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.alignleft  { float: left;  margin-right: var(--gap); margin-bottom: 0.5rem; }
+.alignright { float: right; margin-left:  var(--gap); margin-bottom: 0.5rem; }
+.aligncenter { display: block; margin: 0 auto; }
+.alignwide  { width: 100%; }
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:    #1a1a1a;
+    --fg:    #e8e8e8;
+    --muted: #888;
+    --border: #333;
+    --link:  #e8e8e8;
+    --link-visited: #aaa;
+  }
+
+  .entry-content code,
+  .entry-content pre,
+  .entry-content th {
+    background: #262626;
+  }
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .site-nav,
+  .comments-area { display: none; }
+  body { font-size: 12pt; }
+}
