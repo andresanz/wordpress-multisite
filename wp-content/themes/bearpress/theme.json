@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": false,
+    "border": {
+      "color": false,
+      "radius": false,
+      "style": false,
+      "width": false
+    },
+    "color": {
+      "background": true,
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "link": false,
+      "text": true,
+      "palette": [
+        { "color": "#ffffff", "name": "Background", "slug": "background" },
+        { "color": "#333333", "name": "Text",       "slug": "text" },
+        { "color": "#0000ff", "name": "Link",       "slug": "link" }
+      ]
+    },
+    "layout": {
+      "contentSize": "680px",
+      "wideSize": "680px"
+    },
+    "spacing": {
+      "blockGap": null,
+      "padding": false,
+      "margin": false,
+      "units": []
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fontFamilies": [
+        {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+          "name": "System Sans",
+          "slug": "system-sans"
+        },
+        {
+          "fontFamily": "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace",
+          "name": "System Mono",
+          "slug": "system-mono"
+        }
+      ],
+      "fontSizes": [
+        { "name": "Small",  "size": "0.85rem", "slug": "small"  },
+        { "name": "Normal", "size": "1rem",    "slug": "normal" }
+      ],
+      "fontStyle": false,
+      "fontWeight": false,
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textDecoration": false,
+      "textTransform": false
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#ffffff",
+      "text": "#333333"
+    },
+    "typography": {
+      "fontFamily": "var(--font)",
+      "fontSize": "16px",
+      "lineHeight": "1.6"
+    },
+    "spacing": {
+      "blockGap": "1rem"
+    }
+  }
+}

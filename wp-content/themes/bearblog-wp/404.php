@@ -1,13 +1,15 @@
 <?php get_header(); ?>
 
-<article>
-	<header class="entry-header">
-		<h1 class="entry-title"><?php esc_html_e( '404 — Page not found', 'bearpress' ); ?></h1>
-	</header>
-	<div class="entry-content">
-		<p><?php esc_html_e( "The page you're looking for doesn't exist.", 'bearpress' ); ?></p>
-		<?php get_search_form(); ?>
-	</div>
-</article>
+<div class="error-404">
+    <header class="page-header">
+        <h1 class="page-title"><?php esc_html_e( '404', 'bearpress' ); ?></h1>
+    </header>
+    <p><?php esc_html_e( 'Page not found.', 'bearpress' ); ?></p>
+    <p style="margin-top:1rem;">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <?php esc_html_e( '← Go home', 'bearpress' ); ?>
+        </a>
+    </p>
+</div>
 
 <?php get_footer(); ?>

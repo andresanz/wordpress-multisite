@@ -1,67 +1,46 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<?php wp_head(); ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<div class="site">
+<div class="site-wrapper">
 
-	<header class="site-header">
-		<p class="site-title">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php bloginfo( 'name' ); ?>
-			</a>
-		</p>
+    <header class="site-header">
+        <div class="site-branding">
+            <div class="site-title">
+                <?php if ( is_front_page() && is_home() ) : ?>
+                    <span><?php bloginfo( 'name' ); ?></span>
+                <?php else : ?>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <?php bloginfo( 'name' ); ?>
+                    </a>
+                <?php endif; ?>
+            </div>
 
-		<?php
-		$desc = get_bloginfo( 'description', 'display' );
-		if ( $desc ) : ?>
-			<p class="site-description"><?php echo esc_html( $desc ); ?></p>
-		<?php endif; ?>
+            <?php if ( get_theme_mod( 'bearpress_show_tagline', true ) ) :
+                $description = get_bloginfo( 'description', 'display' );
+                if ( $description || is_customize_preview() ) : ?>
+                    <p class="site-description"><?php echo $description; ?></p>
+                <?php endif;
+            endif; ?>
+        </div>
 
-		<?php if ( has_nav_menu( 'primary' ) ) : ?>
-			<nav class="site-nav" aria-label="<?php esc_attr_e( 'Primary', 'bearpress' ); ?>">
-				<?php
-				wp_nav_menu( [
-					'theme_location' => 'primary',
-					'menu_class'     => '',
-					'container'      => false,
-					'items_wrap'     => '%3$s',
-					'walker'         => new BearPress_Nav_Walker(),
-				] );
-				?>
-			</nav>
-		<?php endif; ?>
-	</header>
+        <?php if ( has_nav_menu( 'primary' ) ) : ?>
+            <nav class="main-navigation" aria-label="<?php esc_attr_e( 'Primary', 'bearpress' ); ?>">
+                <?php wp_nav_menu( [
+                    'theme_location' => 'primary',
+                    'menu_class'     => '',
+                    'container'      => false,
+                    'depth'          => 1,
+                ] ); ?>
+            </nav>
+        <?php endif; ?>
+    </header>
 
-	<main class="site-main" id="main">
-<?php
-
-/**
- * Minimal nav walker — outputs plain <a> links, no <ul><li> wrapper.
- */
-class BearPress_Nav_Walker extends Walker_Nav_Menu {
-	public function start_el( &$output, $data_object, $depth = 0, $args = null, $current_object_id = 0 ) {
-		$item    = $data_object;
-		$classes = empty( $item->classes ) ? [] : (array) $item->classes;
-		$class   = implode( ' ', array_filter( $classes ) );
-		$url     = $item->url ? esc_url( $item->url ) : '#';
-		$title   = apply_filters( 'the_title', $item->title, $item->ID );
-
-		$output .= sprintf(
-			'<a href="%s" class="%s">%s</a>',
-			$url,
-			esc_attr( $class ),
-			esc_html( $title )
-		);
-	}
-	public function start_lvl( &$output, $depth = 0, $args = null ) {}
-	public function end_lvl( &$output, $depth = 0, $args = null ) {}
-	public function end_el( &$output, $data_object, $depth = 0, $args = null ) {}
-}
+    <main id="main" class="site-main">

@@ -1,0 +1,633 @@
+/*
+Theme Name:  BearPress
+Theme URI:   https://andresanz.com
+Author:      Andre Sanz
+Author URI:  https://andresanz.com
+Description: A minimal WordPress theme mimicking BearBlog — no decoration, no images, just words. Radical restraint.
+Version:     1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 8.0
+License:     GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bearpress
+Tags:        blog, minimal, lightweight, clean, text-focused
+*/
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --bg:         #fff;
+  --text:       #333;
+  --text-light: #666;
+  --text-faint: #999;
+  --accent:     #00f;          /* BearBlog blue links */
+  --border:     #eee;
+  --max-width:  680px;
+  --font:       -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono:  "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-size:  16px;
+  --line:       1.6;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+html {
+  font-size: var(--font-size);
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font);
+  line-height: var(--line);
+  -webkit-font-smoothing: antialiased;
+  padding: 0 1rem;
+}
+
+/* ── Layout ─────────────────────────────────────────────────── */
+.site-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.site-header {
+  margin-bottom: 2.5rem;
+}
+
+.site-header .site-title {
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline;
+}
+
+.site-header .site-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-header .site-title a:hover {
+  text-decoration: underline;
+}
+
+.site-header .site-tagline {
+  display: inline;
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.site-header .site-tagline::before {
+  content: ' — ';
+}
+
+/* Primary nav */
+.site-nav {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.site-nav a {
+  color: var(--accent);
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+/* ── Post list ──────────────────────────────────────────────── */
+.post-list {
+  list-style: none;
+}
+
+.post-list-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.2rem 0;
+  line-height: 1.5;
+}
+
+.post-list-date {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  min-width: 5.5rem;
+}
+
+.post-list-title a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.post-list-title a:hover {
+  text-decoration: underline;
+}
+
+/* Year divider */
+.post-list-year {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  margin: 1.25rem 0 0.3rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.post-list-year:first-child {
+  margin-top: 0;
+}
+
+/* ── Single post ────────────────────────────────────────────── */
+.post-header {
+  margin-bottom: 1.75rem;
+}
+
+.post-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.post-meta {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
+.post-meta a {
+  color: var(--text-faint);
+}
+
+.post-meta .sep {
+  margin: 0 0.3rem;
+}
+
+/* ── Post content ───────────────────────────────────────────── */
+.post-content {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.post-content > * + * {
+  margin-top: 1.1rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.post-content h1 { font-size: 1.3rem; }
+.post-content h2 { font-size: 1.15rem; }
+.post-content h3 { font-size: 1rem; }
+.post-content h4,
+.post-content h5,
+.post-content h6 { font-size: 0.95rem; }
+
+.post-content p { margin-bottom: 0; }
+
+.post-content a {
+  color: var(--accent);
+}
+
+.post-content a:hover {
+  text-decoration: none;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.5rem;
+}
+
+.post-content li + li {
+  margin-top: 0.2rem;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.post-content code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: #f5f5f5;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.post-content pre {
+  background: #f5f5f5;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.post-content th,
+.post-content td {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.post-content th {
+  background: #f9f9f9;
+  font-weight: 600;
+}
+
+.post-content figure {
+  margin: 1.25rem 0;
+}
+
+.post-content figcaption {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  margin-top: 0.3rem;
+}
+
+/* ── Tags ───────────────────────────────────────────────────── */
+.post-tags {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
+.post-tags a {
+  color: var(--text-faint);
+  margin-right: 0.4rem;
+}
+
+.post-tags a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.post-tags a::before {
+  content: '#';
+}
+
+/* ── Back link ──────────────────────────────────────────────── */
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  text-decoration: none;
+  margin-bottom: 1.75rem;
+}
+
+.back-link:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Pagination ─────────────────────────────────────────────── */
+.pagination {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.pagination a {
+  color: var(--accent);
+}
+
+/* ── Comments ───────────────────────────────────────────────── */
+.comments-area {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.comments-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.comment-list {
+  list-style: none;
+}
+
+.comment {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.comment-author {
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.comment-date {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-left: 0.5rem;
+}
+
+.comment-body {
+  margin-top: 0.4rem;
+}
+
+.comment-body p {
+  margin-bottom: 0;
+}
+
+/* Comment form */
+.comment-respond {
+  margin-top: 1.5rem;
+}
+
+.comment-respond h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.comment-form label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  margin-bottom: 0.75rem;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: var(--accent);
+}
+
+.comment-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.comment-form .submit input {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.comment-form .submit input:hover {
+  background: #000;
+}
+
+/* ── Widgets / Sidebar ──────────────────────────────────────── */
+.widget {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.widget-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+}
+
+.widget ul {
+  list-style: none;
+}
+
+.widget ul li {
+  padding: 0.1rem 0;
+}
+
+.widget a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.widget a:hover {
+  text-decoration: underline;
+}
+
+/* ── Search ─────────────────────────────────────────────────── */
+.search-form {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.search-form input[type="search"] {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.search-form input:focus {
+  border-color: var(--accent);
+}
+
+.search-form button {
+  padding: 0.4rem 0.8rem;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 3px;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* ── Tag / category archive header ─────────────────────────── */
+.archive-header {
+  margin-bottom: 1.75rem;
+}
+
+.archive-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.archive-description {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-top: 0.2rem;
+}
+
+/* ── 404 / no results ───────────────────────────────────────── */
+.not-found-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.not-found-content {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.site-footer {
+  margin-top: 3rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.site-footer a {
+  color: var(--text-faint);
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+/* ── WordPress core class support ───────────────────────────── */
+.alignleft  { float: left; margin-right: 1rem; margin-bottom: 0.5rem; }
+.alignright { float: right; margin-left: 1rem; margin-bottom: 0.5rem; }
+.aligncenter { display: block; margin: 0 auto; }
+.wp-caption { max-width: 100%; }
+.wp-caption-text { font-size: 0.82rem; color: var(--text-faint); margin-top: 0.25rem; }
+.sticky { /* intentionally blank — BearBlog doesn't style stickies */ }
+.bypostauthor { /* intentionally blank */ }
+.screen-reader-text {
+  clip: rect(1px,1px,1px,1px);
+  height: 1px; width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* ── Gutenberg block support ────────────────────────────────── */
+.wp-block-quote {
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.wp-block-code,
+.wp-block-preformatted {
+  background: #f5f5f5;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  border-radius: 3px;
+}
+
+.wp-block-separator {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+.wp-block-image img { max-width: 100%; height: auto; }
+
+.wp-block-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.wp-block-table td,
+.wp-block-table th {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  :root { --font-size: 15px; }
+
+  .post-list-item {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-list-date {
+    font-size: 0.75rem;
+  }
+}
+
+/* ── Print ──────────────────────────────────────────────────── */
+@media print {
+  .site-nav,
+  .back-link,
+  .post-tags,
+  .pagination,
+  .comments-area,
+  .site-footer { display: none; }
+}

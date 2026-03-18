@@ -1,24 +1,21 @@
-	</main><!-- #main -->
+    </main><!-- #main -->
 
-	<footer class="site-footer">
-		<span>
-			&copy; <?php echo date( 'Y' ); ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<?php bloginfo( 'name' ); ?>
-			</a>
-		</span>
-		<span>
-			<?php
-			printf(
-				/* translators: %s: WordPress link */
-				esc_html__( 'Powered by %s', 'bearpress' ),
-				'<a href="https://wordpress.org">WordPress</a>'
-			);
-			?>
-		</span>
-	</footer>
+    <footer class="site-footer">
+        <?php
+        $footer_text = get_theme_mod( 'bearpress_footer_text', '' );
+        if ( $footer_text ) {
+            echo wp_kses_post( $footer_text );
+        } else {
+            printf(
+                '<a href="%s">%s</a>',
+                esc_url( home_url( '/' ) ),
+                esc_html( get_bloginfo( 'name' ) )
+            );
+        }
+        ?>
+    </footer>
 
-</div><!-- .site -->
+</div><!-- .site-wrapper -->
 
 <?php wp_footer(); ?>
 </body>
